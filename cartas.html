@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartas | Granja Azul</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/cartas.css">
+</head>
+<body>
+    <div id="header-dinamico"></div>
+    <div id="nav-dinamico"></div>
+
+    <main class="cartas-main">
+        <section class="cartas-card">
+            <img src="img/flor.avif" alt="Decoración floral" class="cartas-icon" loading="lazy">
+            <div class="cartas-title">Cartas disponibles</div>
+            <nav class="cartas-actions" aria-label="Seleccionar carta">
+                <a class="cartas-button" href="#">CARTA SAN ISIDRO - EL POLO</a>
+                <a class="cartas-button secondary" href="#">CARTA SANTA CLARA</a>
+            </nav>
+        </section>
+    </main>
+
+    <div id="footer-dinamico"></div>
+
+    <script>
+        function cargarComponente(idContenedor, rutaArchivo) {
+            fetch(rutaArchivo)
+                .then(respuesta => respuesta.text())
+                .then(datos => {
+                    document.getElementById(idContenedor).innerHTML = datos;
+                })
+                .catch(error => console.error("Error cargando " + rutaArchivo, error));
+        }
+
+        cargarComponente('header-dinamico', 'header.html');
+        cargarComponente('nav-dinamico', 'nav.html');
+        cargarComponente('footer-dinamico', 'footer.html');
+    </script>
+</body>
+</html>

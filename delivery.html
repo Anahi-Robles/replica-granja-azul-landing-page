@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery | Granja Azul</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/delivery.css">
+</head>
+<body>
+    <div id="header-dinamico"></div>
+    <div id="nav-dinamico"></div>
+
+    <main class="delivery-main">
+        <section class="delivery-card">
+            <img src="img/flor.avif" alt="Decoración floral" class="delivery-icon" loading="lazy">
+            <div class="delivery-label">Carta Delivery</div>
+            <h1>Cómo pedir</h1>
+            <div class="delivery-grid">
+                <article class="delivery-box">
+                    <h2>Por web</h2>
+                    <a href="#" class="delivery-button">PEDIR</a>
+                </article>
+                <article class="delivery-box">
+                    <h2>Por Rappi</h2>
+                    <a href="#" class="delivery-button">PEDIR</a>
+                </article>
+                <article class="delivery-box">
+                    <h2>Por PedidosYa</h2>
+                    <a href="#" class="delivery-button">PEDIR</a>
+                </article>
+            </div>
+            <div class="delivery-info">
+                <p class="delivery-subtitle">Horario de recepción de pedidos</p>
+                <p>De lunes a sábado de 12 pm. a 10 pm.<br>y domingo de 11:30 am. a 8 pm.</p>
+                <p class="delivery-note">*Verificar en cada app la zona de cobertura</p>
+            </div>
+        </section>
+    </main>
+
+    <section class="delivery-fullwidth">
+        <img src="img/menucompleto.avif" alt="Menú completo" class="menucompleto" loading="lazy">
+    </section>
+
+    <div id="footer-dinamico"></div>
+
+    <script>
+        function cargarComponente(idContenedor, rutaArchivo) {
+            fetch(rutaArchivo)
+                .then(respuesta => respuesta.text())
+                .then(datos => {
+                    document.getElementById(idContenedor).innerHTML = datos;
+                })
+                .catch(error => console.error("Error cargando " + rutaArchivo, error));
+        }
+
+        cargarComponente('header-dinamico', 'header.html');
+        cargarComponente('nav-dinamico', 'nav.html');
+        cargarComponente('footer-dinamico', 'footer.html');
+    </script>
+</body>
+</html>

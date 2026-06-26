@@ -1,0 +1,69 @@
+.site-header {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 24px 20px 18px;
+    background: linear-gradient(135deg, #273264, #30416e);
+    color: white;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    max-width: 1150px;
+    margin: 0 auto 16px;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+}
+
+.pill-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: white;
+    color: #30416e;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.header-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.btn-menu {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 170px;
+    padding: 10px 14px;
+    border: 2px solid white;
+    border-radius: 999px;
+    background: #3d4d84;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .header-top {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-menu {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros | Granja Azul</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/nosotros.css">
+</head>
+<body>
+    <div id="header-dinamico"></div>
+    <div id="nav-dinamico"></div>
+
+    <main>
+        <section class="hero-nosotros">
+            <div class="hero-nosotros__top">
+                <img class="hero-icon" src="img/flor.avif" alt="Flor decorativa" loading="lazy">
+                <span>DESDE HACE 76 AÑOS</span>
+            </div>
+            <div class="hero-nosotros__title">
+                <h1>sabores pioneros</h1>
+                <p>y creadores del pollo a la brasa. Un sabor inigualable y reconocido convertido en una tradición que se comparte de generación en generación.</p>
+            </div>
+            <div class="hero-nosotros__image">
+                <img src="img/cocinero.avif" alt="Cocinero sirviendo pollos a la brasa" loading="lazy">
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="section-dark__inner">
+                <div class="section-dark__text">
+                    <p class="eyebrow">NUESTRO ESPACIO</p>
+                    <h2>es el lugar preferido</h2>
+                    <p>para disfrutar momentos inolvidables en familia y con amigos, quienes sentados alrededor de una mesa comparten anécdotas e historias en una atmósfera acogedora y única.</p>
+                    <div class="section-decor">
+                        <img src="img/hojas.avif" alt="Decoración de hojas" loading="lazy">
+                    </div>
+                </div>
+                <div class="section-dark__image">
+                    <img src="img/mesero.avif" alt="Mesero atendiendo una mesa" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="section-light__inner">
+                <div class="section-light__image">
+                    <img src="img/menu.avif" alt="Platos servidos en la mesa" loading="lazy">
+                </div>
+                <div class="section-light__text">
+                    <p class="eyebrow">NUESTRA FAMILIA</p>
+                    <h2>crece y se fortalece</h2>
+                    <p>porque siempre estaremos listos para reencontrarnos, descubriendo nuevas maneras para seguir disfrutando del sabor de la tradición.</p>
+                    <div class="section-decor section-decor--light">
+                        <img src="img/hojas.avif" alt="Decoración de hojas" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-dinamico"></div>
+
+    <script>
+        function cargarComponente(idContenedor, rutaArchivo) {
+            fetch(rutaArchivo)
+                .then(respuesta => respuesta.text())
+                .then(datos => {
+                    document.getElementById(idContenedor).innerHTML = datos;
+                })
+                .catch(error => console.error("Error cargando " + rutaArchivo, error));
+        }
+
+        cargarComponente('header-dinamico', 'header.html');
+        cargarComponente('nav-dinamico', 'nav.html');
+        cargarComponente('footer-dinamico', 'footer.html');
+    </script>
+</body>
+</html>

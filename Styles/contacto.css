@@ -1,0 +1,135 @@
+﻿@import url('header.css');
+@import url('footer.css');
+@import url('nav.css');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Dosis', sans-serif;
+    background: #dce8f6;
+    color: #102a54;
+}
+
+.contacto-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 16px 80px;
+}
+
+.contacto-card {
+    width: min(960px, 100%);
+    background: #e3eef9;
+    border-radius: 30px;
+    padding: 56px 52px 48px;
+    box-shadow: 0 28px 70px rgba(16, 42, 84, 0.12);
+    display: grid;
+    gap: 30px;
+    text-align: center;
+}
+
+.contacto-icon {
+    width: 68px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.contacto-card h1 {
+    margin: 0;
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(3rem, 4vw, 4.5rem);
+    letter-spacing: 0.04em;
+    color: #113b78;
+}
+
+.contacto-texto {
+    margin: 0 auto;
+    max-width: 780px;
+    color: #1f3f72;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    text-align: left;
+}
+
+.contacto-form {
+    display: grid;
+    gap: 20px;
+}
+
+.contacto-input,
+.contacto-textarea {
+    width: 100%;
+    border: 2px solid #0f3b78;
+    border-radius: 8px;
+    background: transparent;
+    padding: 16px 18px;
+    font-family: inherit;
+    color: #102a54;
+    font-size: 1rem;
+    outline: none;
+}
+
+.contacto-input::placeholder,
+.contacto-textarea::placeholder {
+    color: #5f7aa2;
+}
+
+.contacto-input--half {
+    width: 100%;
+}
+
+.contacto-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.contacto-textarea {
+    min-height: 220px;
+    resize: vertical;
+}
+
+.contacto-button {
+    width: 220px;
+    margin: 0 auto;
+    padding: 16px 30px;
+    border: none;
+    border-radius: 12px;
+    background: #0e3d78;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+}
+
+@media (max-width: 880px) {
+    .contacto-card {
+        padding: 44px 32px 36px;
+    }
+
+    .contacto-texto {
+        text-align: left;
+    }
+}
+
+@media (max-width: 640px) {
+    .contacto-main {
+        padding: 32px 12px 50px;
+    }
+
+    .contacto-card {
+        padding: 32px 22px 32px;
+    }
+
+    .contacto-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contacto-button {
+        width: 100%;
+    }
+}

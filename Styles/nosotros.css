@@ -1,0 +1,231 @@
+@import url('header.css');
+@import url('footer.css');
+@import url('nav.css');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Dosis', sans-serif;
+    background: #ecf2fb;
+    color: #102a54;
+}
+
+main {
+    padding: 24px 18px 60px;
+}
+
+.hero-nosotros {
+    max-width: 900px;
+    margin: 0 auto 32px;
+    background: white;
+    border-radius: 22px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    padding: 56px 32px 36px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    text-align: center;
+}
+
+.hero-nosotros__top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-icon {
+    width: 58px;
+    height: auto;
+}
+
+.hero-nosotros__top span {
+    display: inline-flex;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: #0f3b7d;
+    font-weight: 700;
+    font-size: 0.84rem;
+}
+
+.hero-nosotros__title h1 {
+    margin: 0;
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(3.4rem, 5vw, 4.8rem);
+    line-height: 1.05;
+    color: #0f3b7d;
+    text-transform: lowercase;
+}
+
+.hero-nosotros__title p {
+    max-width: 760px;
+    margin: 0 auto;
+    font-size: 1rem;
+    line-height: 1.9;
+    color: #27395e;
+}
+
+.hero-nosotros__image img {
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+    object-fit: cover;
+    display: block;
+}
+
+.section-dark,
+.section-light {
+    width: 100%;
+}
+
+.section-dark {
+    background: #0d2e70;
+    padding: 84px 0 72px;
+}
+
+.section-dark__inner,
+.section-light__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 36px;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.section-dark__inner {
+    grid-template-columns: 1.05fr 0.95fr;
+}
+
+.section-dark__text {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.section-dark__text .eyebrow,
+.section-light__text .eyebrow {
+    margin: 0;
+    color: #38a4fc;
+    font-size: 0.82rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+}
+
+.section-dark__text h2,
+.section-light__text h2 {
+    margin: 0;
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(3rem, 4vw, 4.6rem);
+    line-height: 1.05;
+    color: inherit;
+}
+
+.section-dark__text p {
+    margin: 0;
+    max-width: 540px;
+    font-size: 1rem;
+    line-height: 1.9;
+    color: #d0d9f0;
+}
+
+.section-decor {
+    width: min(360px, 100%);
+}
+
+.section-decor img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.section-dark__image,
+.section-light__image {
+    width: 100%;
+    min-height: 420px;
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-dark__image img,
+.section-light__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.section-light {
+    background: #dbe7f3;
+    padding: 84px 0 72px;
+}
+
+.section-light__inner {
+    grid-template-columns: 0.95fr 1.05fr;
+}
+
+.section-light__text {
+    color: #15356c;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.section-light__text p {
+    margin: 0;
+    max-width: 520px;
+    font-size: 1rem;
+    line-height: 1.9;
+    color: #2b4d7b;
+}
+
+@media (max-width: 1024px) {
+    .section-dark__inner,
+    .section-light__inner {
+        grid-template-columns: 1fr;
+    }
+
+    .section-dark,
+    .section-light {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 16px 12px 40px;
+    }
+
+    .hero-nosotros {
+        padding: 32px 20px 28px;
+    }
+
+    .hero-nosotros__title h1 {
+        font-size: 3.4rem;
+    }
+
+    .hero-nosotros__title p {
+        font-size: 0.98rem;
+    }
+
+    .section-dark__inner,
+    .section-light__inner {
+        padding: 0 12px;
+        gap: 28px;
+    }
+
+    .section-dark__text h2,
+    .section-light__text h2 {
+        font-size: 3rem;
+    }
+}
+

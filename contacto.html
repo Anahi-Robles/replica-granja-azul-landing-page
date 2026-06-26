@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Granja Azul</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/contacto.css">
+</head>
+<body>
+    <div id="header-dinamico"></div>
+    <div id="nav-dinamico"></div>
+
+    <main class="contacto-main">
+        <section class="contacto-card">
+            <img src="img/flor.avif" alt="Flor decorativa" class="contacto-icon" loading="lazy">
+            <h1>*ENVÍANOS UN MENSAJE</h1>
+            <p class="contacto-texto">GRANJA AZUL S.A., con RUC 20112378864 y domicilio en Car. Central Km. 11.5 Santa Clara (Alt. Cdra8 Av. Jorge Chávez C/calle G.Azul), te informa que, para atender tu requerimiento o consulta, es necesario tratar tus datos personales. Serán incorporados en el banco de datos denominado “Usuarios de página web”. Conoce mayor detalle en nuestra “Política de Privacidad” https://www.invertur.com.pe/granjaazul/politica-de-privacidad.pdf</p>
+
+            <form class="contacto-form">
+                <input type="text" placeholder="Ingresa tu nombre completo" class="contacto-input" />
+                <div class="contacto-row">
+                    <input type="email" placeholder="Ingresa tu email" class="contacto-input contacto-input--half" />
+                    <input type="tel" placeholder="Ingresa tu teléfono" class="contacto-input contacto-input--half" />
+                </div>
+                <textarea placeholder="Ingresa tu mensaje" class="contacto-textarea"></textarea>
+                <button type="submit" class="contacto-button">ENVIAR</button>
+            </form>
+        </section>
+    </main>
+
+    <div id="footer-dinamico"></div>
+
+    <script>
+        function cargarComponente(idContenedor, rutaArchivo) {
+            fetch(rutaArchivo)
+                .then(respuesta => respuesta.text())
+                .then(datos => {
+                    document.getElementById(idContenedor).innerHTML = datos;
+                })
+                .catch(error => console.error("Error cargando " + rutaArchivo, error));
+        }
+
+        cargarComponente('header-dinamico', 'header.html');
+        cargarComponente('nav-dinamico', 'nav.html');
+        cargarComponente('footer-dinamico', 'footer.html');
+    </script>
+</body>
+</html>

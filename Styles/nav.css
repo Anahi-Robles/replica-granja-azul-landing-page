@@ -1,0 +1,29 @@
+.site-nav {
+    width: 100%;
+    background: #dfe3ee;
+    padding: 14px 20px;
+    box-sizing: border-box;
+}
+
+.site-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px 44px;
+    margin: 0;
+    padding: 0;
+}
+
+.site-nav a {
+    color: #2b388f;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    .site-nav ul {
+        gap: 12px 20px;
+    }
+}

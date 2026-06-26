@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Granja Azul | Restaurantes</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="Styles/index.css">
+</head>
+
+<body>
+    <div id="header-dinamico"></div>
+    <div id="nav-dinamico"></div>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="badge">Restaurantes familiares</span>
+                <h2>Sabores que acompañan tus mejores momentos</h2>
+                <p>Disfruta de pollos a la brasa, platos tradicionales y un ambiente acogedor en nuestros tres locales.</p>
+                <div class="hero-actions">
+                    <a class="btn" href="#locales">Ver locales</a>
+                    <a class="btn btn-secondary" href="#">Conoce más</a>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <div class="carousel">
+                    <div class="carousel-track">
+                        <div class="carousel-slide active">
+                            <img src="img/Pollo-carrusel.avif" alt="Plato de Granja Azul">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="img/menu.avif" alt="Menú de Granja Azul">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="img/menucompleto.avif" alt="Menú completo de Granja Azul">
+                        </div>
+                    </div>
+
+                    <button class="carousel-btn prev" type="button" aria-label="Imagen anterior">&#10094;</button>
+                    <button class="carousel-btn next" type="button" aria-label="Imagen siguiente">&#10095;</button>
+                    <div class="carousel-dots" aria-label="Selector de imágenes"></div>
+                </div>
+                <p class="text">“Comida de siempre, preparada con cariño.”</p>
+            </div>
+        </section>
+
+        <section class="locales" id="locales">
+            <div class="section-heading">
+                <p class="texto-secundario">Nuestros locales</p>
+                <h3>Encuentra el espacio ideal para tu próxima visita</h3>
+            </div>
+
+            <div class="tarjetas">
+                <article class="tarjeta">
+                    <img src="img/gril.avif" alt="Local El Polo">
+                    <div class="info-tarjeta">
+                        <p class="texto-secundario">Granja Azul Grill</p>
+                        <h3 class="titulo">El Polo</h3>
+                        <p class="descripcion">
+                            Con el sabor y cariño de siempre, nuestro nuevo restaurante de El Polo te espera en un acogedor ambiente ubicado en el C.C. Urban Plaza El Polo, donde continúa nuestra deliciosa tradición y nuevas alternativas.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="tarjeta tarjeta-reverse">
+                    <img src="img/santaclara.avif" alt="Local Santa Clara">
+                    <div class="info-tarjeta">
+                        <p class="texto-secundario">Granja Azul</p>
+                        <h3 class="titulo">Santa Clara</h3>
+                        <p class="descripcion">
+                            Desde hace más de 7 décadas, nuestra historia se sigue cocinando al calor de los buenos momentos. Disfruta de un delicioso almuerzo en un ambiente único y acogedor, con diversión para los más pequeños.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="tarjeta">
+                    <img src="img/sanisiadro.avif" alt="Local San Isidro">
+                    <div class="info-tarjeta">
+                        <p class="texto-secundario">Granja Azul Grill</p>
+                        <h3 class="titulo">San Isidro</h3>
+                        <p class="descripcion">
+                            Un espacio donde también podrás disfrutar de la tradición de siempre acompañada de novedades. Nuestro grill lounge te espera de jueves a sábado a partir de las 7 pm para una noche especial.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-dinamico"></div>
+
+    <script>
+        function cargarComponente(idContenedor, rutaArchivo) {
+            fetch(rutaArchivo)
+                .then(respuesta => respuesta.text())
+                .then(datos => {
+                    document.getElementById(idContenedor).innerHTML = datos;
+                })
+                .catch(error => console.error("Error cargando " + rutaArchivo, error));
+        }
+
+        cargarComponente('header-dinamico', 'header.html');
+        cargarComponente('nav-dinamico', 'nav.html');
+        cargarComponente('footer-dinamico', 'footer.html');
+
+        const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+        const dotsContainer = document.querySelector('.carousel-dots');
+        const prevButton = document.querySelector('.carousel-btn.prev');
+        const nextButton = document.querySelector('.carousel-btn.next');
+        let currentSlide = 0;
+        let autoPlay;
+
+        function renderDots() {
+            slides.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.className = 'carousel-dot' + (index === 0 ? ' active' : '');
+                dot.type = 'button';
+                dot.setAttribute('aria-label', `Ir a la imagen ${index + 1}`);
+                dot.addEventListener('click', () => {
+                    showSlide(index);
+                    startAutoPlay();
+                });
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        function showSlide(index) {
+            slides.forEach((slide, slideIndex) => {
+                slide.classList.toggle('active', slideIndex === index);
+            });
+
+            const dots = Array.from(document.querySelectorAll('.carousel-dot'));
+            dots.forEach((dot, dotIndex) => {
+                dot.classList.toggle('active', dotIndex === index);
+            });
+
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            const nextIndex = (currentSlide + 1) % slides.length;
+            showSlide(nextIndex);
+        }
+
+        function startAutoPlay() {
+            clearInterval(autoPlay);
+            autoPlay = setInterval(nextSlide, 4500);
+        }
+
+        if (slides.length) {
+            renderDots();
+            showSlide(0);
+            startAutoPlay();
+        }
+
+        prevButton?.addEventListener('click', () => {
+            const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(prevIndex);
+            startAutoPlay();
+        });
+
+        nextButton?.addEventListener('click', () => {
+            nextSlide();
+            startAutoPlay();
+        });
+    </script>
+</body>
+</html>

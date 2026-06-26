@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locales | Granja Azul</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/locales.css">
+</head>
+<body>
+    <div id="header-dinamico"></div>
+    <div id="nav-dinamico"></div>
+
+    <main class="locales-main">
+        <section class="locales-hero">
+            <img src="img/flor.avif" alt="Decoración floral" class="locales-icon" loading="lazy">
+            <h1>Encuéntranos en</h1>
+        </section>
+
+        <section class="locales-grid">
+            <article class="local-card">
+                <div class="local-card__text">
+                    <h2>Granja Azul Santa Clara</h2>
+                    <p>Carretera Central Km. 11.5, Santa Clara – Ate</p>
+                    <p>Horario de atención: martes a jueves de 12 pm. a 5 pm. y viernes a domingo de 12 pm. a 6 pm.</p>
+                    <img src="img/localsanta-clara.avif" alt="Local Santa Clara" loading="lazy">
+                </div>
+                
+            </article>
+
+            <article class="local-card local-card--reverse">
+                <div class="local-card__text">
+                    <h2>Granja Azul San Isidro</h2>
+                    <p>Av. Augusto Pérez Araníbar 1998 - San Isidro</p>
+                    <p>Horario de atención: lunes a jueves de 12 pm. a 10 pm., viernes y sábado de 12 pm. a 11 pm. y domingo de 12 pm. a 6 pm.</p>
+                    <img src="img/localsan-isidro.avif" alt="Local San Isidro" loading="lazy">
+                </div>
+                
+            </article>
+
+            <article class="local-card">
+                <div class="local-card__text">
+                    <h2>Granja Azul El Polo</h2>
+                    <p>C.C. Urban Plaza El Polo – Piso 3 (Av. El Polo N° 695 – Surco)</p>
+                    <p>Horario de atención: lunes a sábado de 12 pm. a 11 pm. y domingo de 12 pm. a 9 pm.</p>
+                    <img src="img/localel-polo.avif" alt="Local El Polo" loading="lazy">
+                </div>
+                
+            </article>
+
+            <article class="local-card local-card--fullwidth">
+                <div class="local-card__text">
+                    <h2>Granja Azul Asia</h2>
+                    <img src="img/mesas.avif" alt="Local Asia" loading="lazy">
+                    <p>Cerrado temporalmente. Apertura próxima temporada de verano.</p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <div id="footer-dinamico"></div>
+
+    <script>
+        function cargarComponente(idContenedor, rutaArchivo) {
+            fetch(rutaArchivo)
+                .then(respuesta => respuesta.text())
+                .then(datos => {
+                    document.getElementById(idContenedor).innerHTML = datos;
+                })
+                .catch(error => console.error("Error cargando " + rutaArchivo, error));
+        }
+
+        cargarComponente('header-dinamico', 'header.html');
+        cargarComponente('nav-dinamico', 'nav.html');
+        cargarComponente('footer-dinamico', 'footer.html');
+    </script>
+</body>
+</html>
