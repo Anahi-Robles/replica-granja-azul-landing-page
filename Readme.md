@@ -14,7 +14,11 @@ Este repositorio contiene una versión local de una página de presentación par
 
 ## Cómo ver el proyecto
 
-Las páginas son estáticas. Para verlas localmente basta con abrir `index.html` en un navegador. Para una experiencia de desarrollo recomendada, usa una extensión/servidor local (por ejemplo, Live Server en VS Code):
+https://anahi-robles.github.io/replica-granja-azul-landing-page/
+
+o
+
+Para verlas localmente basta con abrir `index.html` en un navegador. Para una experiencia de desarrollo recomendada, usa una extensión/servidor local (por ejemplo, Live Server en VS Code):
 
 ```bash
 # instalar y usar Live Server (opcional)
